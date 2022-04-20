@@ -6,4 +6,4 @@ Sass
 axios(api github)
 pagination
 search bar with filters
-pre-loading asyn
+pre-loading(loader)
