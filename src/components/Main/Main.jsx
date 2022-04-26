@@ -5,12 +5,13 @@ import { useEffect } from "react";
 import { makeSelectRepos } from "../../state/selectors/repos";
 import { getRepos } from "../../state/actions/repos";
 import RepoList from "../RepoList/RepoList";
+import Input from "../Input/Input";
+import Loader from "../Loader/Loader";
 
 const Main = () => {
   const dispatch = useDispatch();
   const reposData = useSelector(makeSelectRepos());
-
-  console.log(reposData);
+  const { items, isFetching } = reposData || {};
 
   useEffect(() => {
     dispatch(getRepos());
@@ -19,7 +20,8 @@ const Main = () => {
   return (
     <div className={styles.Main}>
       <h1>Main Page</h1>
-      <RepoList repoListData={reposData.items} />
+      <Input />
+      {isFetching ? <Loader /> : <RepoList repoListData={items} />}
     </div>
   );
 };
