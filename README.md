@@ -7,3 +7,4 @@ axios(api github)
 pagination
 search bar with filters
 pre-loading(loader)
+react-thunk
