@@ -5,6 +5,6 @@ React/Redux
 Sass
 axios(api github)
 pagination
-search bar with filters
+search bar with filterss
 pre-loading(loader)
 react-thunk
