@@ -3,9 +3,7 @@ import styles from "./RepoItem.module.less";
 
 const RepoItem = props => {
   const { name, stargazers_count, updated_at, html_url } = props.repo;
-
   const date = new Date(updated_at).toString();
-  console.log(date);
 
   return (
     <div className={styles.RepoItem}>
