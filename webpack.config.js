@@ -8,10 +8,12 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].[hash].js",
+    publicPath: "/",
   },
   devServer: {
     watchFiles: ["./src/*"], // string [string] object [object]
     port: 3000,
+    historyApiFallback: true,
     open: true,
     hot: true,
   },
