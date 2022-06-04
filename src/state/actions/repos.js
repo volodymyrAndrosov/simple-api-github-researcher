@@ -1,5 +1,6 @@
 import axios from "axios";
 import { setRepos, setIsFetching } from "../reducers/reposReducer";
+import { useDispatch } from "react-redux";
 
 export const getRepos = (searchQuery = "stars:%3E1", currentPage, perPage) => {
   if (searchQuery === "") {
@@ -13,5 +14,15 @@ export const getRepos = (searchQuery = "stars:%3E1", currentPage, perPage) => {
     );
     dispatch(setRepos(response.data));
     dispatch(setIsFetching(false));
+  };
+};
+
+export const getCurrentRepo = (userName, repoName, setRepo) => {
+  return async dispatch => {
+    dispatch(setIsFetching(true));
+    const response = await axios.get(`https://api.github.com/repos/${userName}/${repoName}`);
+    dispatch(setIsFetching(false));
+
+    setRepo(response.data);
   };
 };
